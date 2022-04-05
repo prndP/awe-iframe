@@ -1,7 +1,7 @@
-<html>
+<html lang="en">
 <head>
 	<title>AWE External IFrame Test</title>
-	<style type="text/css">
+	<style>
 		body {
 			font-family:  sans-serif;
 			background-color:  white;
@@ -10,19 +10,41 @@
 			text-align: center
 		}
 		.frame-content {
-			width: 100%;
-			min-height:  500px;
+			position: relative;
+			width: calc(100vw - 30px);
+			min-height:  450px;
+			height: calc(50vh - 100px);
 			background-color:  #D0D0D0;
+			text-align: center;
+		}
+		.frame-overlay {
+			padding: 4px;
+			font-size: 10px;
+			position: absolute;
+			text-align: left;
+			opacity: 0;
+			background-color: rgb(255,255,255,0.8);
+			color: black;
+		}
+		.frame-content:hover .frame-overlay {
+			top: 0;
+			left: 0;
+			opacity: 0.6;
 		}
 	</style>
 </head>
 <body>
-	<h1 class="header">External Site</h1>
+	<h1 class="header">Simulate External Site</h1>
 	<hr/>
-	<p>This is an external site</p>
+	<h3>Dev</h3>
 	<div class="frame-content">
-		<pre>&lt;iframe src="https://dev.blackrock.com/aladdinwealth/"/&gt;</pre>
-		<iframe src="https://dev.blackrock.com/aladdinwealth/"></iframe>
+		<div class="frame-overlay"><pre>&lt;iframe src="https://dev.blackrock.com/aladdinwealth"/&gt;</pre></div>
+		<iframe height="100%" width="100%"  src="https://dev.blackrock.com/aladdinwealth"></iframe>
+	</div>
+	<h3>External</h3>
+	<div class="frame-content">
+		<div class="frame-overlay"><pre>&lt;iframe src="https://aladdinwealth.blackrock.com/aladdinwealth"/&gt;</pre></div>
+		<iframe height="100%" width="100%" src="https://aladdinwealth.blackrock.com/aladdinwealth"></iframe>
 	</div>
 </body>
 </html>
